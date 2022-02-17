@@ -3,6 +3,7 @@ mod utils;
 use serde::{Deserialize, Serialize};
 use strong_xml::{XmlRead, XmlWrite};
 use wasm_bindgen::prelude::*;
+use utils::set_panic_hook;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -67,6 +68,7 @@ pub struct View {
 pub fn gen_parent(raw: &str) -> JsValue {
     match View::from_str(raw) {
         Ok(value) => {
+            set_panic_hook();
             return JsValue::from_serde(&value).unwrap();
         }
         Err(e) => {
