@@ -1,3 +1,6 @@
+# ez-xml-parser
+Only toy parser for my toy canvas layout engine
+
 <div align="center">
 
   <h1><code>wasm-pack-template</code></h1>
