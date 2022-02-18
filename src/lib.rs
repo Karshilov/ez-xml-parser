@@ -65,7 +65,7 @@ pub struct View {
 }
 
 #[wasm_bindgen]
-pub fn gen_parent(raw: &str) -> JsValue {
+pub fn template(raw: &str) -> JsValue {
     match View::from_str(raw) {
         Ok(value) => {
             set_panic_hook();
