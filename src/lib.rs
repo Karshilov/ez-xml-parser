@@ -57,7 +57,7 @@ enum Tag {
 #[xml(tag = "view")]
 pub struct View {
     #[xml(attr = "id")]
-    id: String,
+    id: Option<String>,
     #[xml(attr = "class")]
     class: Option<String>,
     #[xml(child = "view", child = "image", child = "text")]
@@ -74,7 +74,7 @@ pub fn template(raw: &str) -> JsValue {
         Err(e) => {
             alert(&format!("{}", e).to_string());
             return JsValue::from_serde(&View {
-                id: String::from(""),
+                id: None,
                 children: Vec::new(),
                 class: None,
             })
